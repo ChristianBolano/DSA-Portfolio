@@ -1,0 +1,36 @@
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class NumberQueue {
+    public static void main(String[] args) {
+        Queue<Integer> numberQueue = new LinkedList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        // Take user input for a number between 11 and 20
+        System.out.print("Choose a number from 11 to 20 to enqueue: ");
+        int userInput = scanner.nextInt();
+
+        // Check if the input is within the specified range
+        if (userInput >= 11 && userInput <= 20) {
+            // Enqueue the user input
+            numberQueue.offer(userInput);
+            System.out.println("Enqueued: " + userInput);
+        } else {
+            System.out.println("Wrong number. Please try again with a number between 11 and 20.");
+        }
+
+        // Display the queue
+        System.out.print("Queue: ");
+        displayQueue(numberQueue);
+
+        scanner.close();
+    }
+
+    private static void displayQueue(Queue<Integer> queue) {
+        for (Integer number : queue) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+    }
+}
